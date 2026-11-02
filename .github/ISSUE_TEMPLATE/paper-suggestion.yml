@@ -1,0 +1,41 @@
+name: Suggest a paper
+description: Propose a paper that is missing from the catalog.
+title: "[Paper] "
+labels: ["paper suggestion"]
+body:
+  - type: input
+    id: link
+    attributes:
+      label: Primary link
+      description: arXiv, OpenReview, PMLR, ACL Anthology, or publisher page.
+      placeholder: https://arxiv.org/abs/...
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue and year
+      placeholder: ICLR 2026 / arXiv 2026
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs
+      description: What is repeated, and which state is passed to the next step? Which existing entry is it closest to?
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Official code or project page
+      placeholder: https://github.com/...
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the catalog and this paper is not already listed.
+          required: true
+        - label: The link is to a primary source.
+          required: true

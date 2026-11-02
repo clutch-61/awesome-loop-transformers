@@ -1,0 +1,22 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate dataset
+        run: python scripts/validate.py
+      - name: Regenerate artifacts
+        run: |
+          python scripts/build_readme.py
+          python scripts/export_csv.py
+      - name: Check generated files are current
+        run: git diff --exit-code

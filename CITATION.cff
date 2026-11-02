@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Awesome Loop Transformers: Looped Transformers, Recurrent Depth and Latent Reasoning"
+message: "If you use this list, cite it as below."
+type: software
+authors:
+  - name: "awesome-loop-transformers contributors"
+repository-code: "https://github.com/clutch-61/awesome-loop-transformers"
+url: "https://github.com/clutch-61/awesome-loop-transformers"
+license: CC-BY-4.0
+date-released: 2026-11-03
+version: "1.0.0"
+abstract: >-
+  A bilingual, annotated catalog of 278 papers on looped and recurrent-depth
+  Transformers, latent reasoning, adaptive computation and test-time compute,
+  merged from Mrkkew/Awesome-Loop-Transformers and
+  asimfish/awesome_loop_transformer.
+keywords:
+  - looped transformers
+  - recurrent depth
+  - latent reasoning
+  - test-time compute
+  - adaptive computation
+  - weight sharing

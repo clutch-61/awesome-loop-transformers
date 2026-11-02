@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="title desc">
+  <title id="title">A looped Transformer: prelude, a shared recurrent block applied T times, and a coda</title>
+  <desc id="desc">Diagram showing input tokens passing through a prelude, then a weight-tied recurrent block that is reused for T iterations with a carried latent state, then a coda that produces output tokens.</desc>
+  <rect x="0" y="0" width="1200" height="320" rx="18" fill="#f7f8fc"/>
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="18" fill="none" stroke="#dde3f2"/>
+
+  <text x="40" y="46" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#5b6cff" letter-spacing="1.5">LOOPED TRANSFORMER</text>
+  <text x="40" y="78" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#0b1220">One block, many depths</text>
+
+  <!-- input tokens -->
+  <g font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+    <rect x="40" y="116" width="96" height="34" rx="8" fill="#ffffff" stroke="#cfd6e8"/>
+    <rect x="40" y="156" width="96" height="34" rx="8" fill="#ffffff" stroke="#cfd6e8"/>
+    <rect x="40" y="196" width="96" height="34" rx="8" fill="#ffffff" stroke="#cfd6e8"/>
+    <text x="88" y="138" text-anchor="middle" font-size="14" fill="#3a4560">x₁</text>
+    <text x="88" y="178" text-anchor="middle" font-size="14" fill="#3a4560">x₂</text>
+    <text x="88" y="218" text-anchor="middle" font-size="14" fill="#3a4560">…</text>
+    <text x="88" y="258" text-anchor="middle" font-size="13" fill="#6b7691">tokens</text>
+  </g>
+
+  <path d="M148 173 H182" stroke="#9aa6c4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- prelude -->
+  <rect x="190" y="132" width="110" height="82" rx="12" fill="#eef1ff" stroke="#c3cbff"/>
+  <text x="245" y="168" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#3b4bd8">Prelude</text>
+  <text x="245" y="190" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#6b7691">once</text>
+
+  <path d="M308 173 H340" stroke="#9aa6c4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- recurrent block -->
+  <rect x="348" y="112" width="420" height="122" rx="16" fill="#e9fbf8" stroke="#9fe4da"/>
+  <text x="558" y="150" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#067a70">Shared recurrent block</text>
+  <text x="558" y="174" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#3a6f69">same weights every iteration</text>
+  <text x="558" y="204" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#5f8a85">h ← F(h, e)</text>
+
+  <!-- loop arrow -->
+  <path d="M376 249 C 376 291, 740 291, 740 249" fill="none" stroke="#00a99b" stroke-width="2.4" stroke-dasharray="6 5" marker-end="url(#arrowTeal)"/>
+  <text x="558" y="300" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#067a70">T iterations · carried latent state h</text>
+
+  <path d="M776 173 H808" stroke="#9aa6c4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- coda -->
+  <rect x="816" y="132" width="100" height="82" rx="12" fill="#fff5e6" stroke="#f4cf94"/>
+  <text x="866" y="168" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#a86a00">Coda</text>
+  <text x="866" y="190" text-anchor="middle" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#8b7355">readout</text>
+
+  <path d="M924 173 H956" stroke="#9aa6c4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- output -->
+  <g font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+    <rect x="964" y="140" width="196" height="66" rx="10" fill="#ffffff" stroke="#cfd6e8"/>
+    <text x="1062" y="166" text-anchor="middle" font-size="13" fill="#3a4560">next-token logits</text>
+    <text x="1062" y="188" text-anchor="middle" font-size="12" fill="#8792ab">no extra output tokens</text>
+  </g>
+
+  <g font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#6b7691">
+    <text x="40" y="296">adaptive halting, routing or a fixed T</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa6c4"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00a99b"/>
+    </marker>
+  </defs>
+</svg>

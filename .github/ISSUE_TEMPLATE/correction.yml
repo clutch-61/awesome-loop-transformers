@@ -1,0 +1,33 @@
+name: Correction
+description: Report a wrong venue, author, claim, link, or category.
+title: "[Fix] "
+labels: ["correction"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry
+      description: Title or arXiv id.
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: What is wrong?
+      options:
+        - Venue or year
+        - Authors
+        - Summary or claim
+        - Link or code
+        - Category or tags
+        - Duplicate entry
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: What it should say
+      description: Quote the section, table, figure, or primary source that supports the correction.
+    validations:
+      required: true
