@@ -15,7 +15,7 @@ FIELDS = [
 ]
 
 with open(ROOT / "data" / "papers.csv", "w", encoding="utf-8", newline="") as fh:
-    w = csv.DictWriter(fh, fieldnames=FIELDS)
+    w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
     w.writeheader()
     for p in DATA["papers"]:
         w.writerow({
